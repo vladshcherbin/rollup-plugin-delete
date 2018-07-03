@@ -1,0 +1,38 @@
+{
+  "name": "rollup-plugin-delete",
+  "description": "Delete files and folders using Rollup",
+  "version": "0.1.0",
+  "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
+  "repository": "vladshcherbin/rollup-plugin-delete",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "build": "rollup -c",
+    "clean": "rimraf dist",
+    "prepublishOnly": "yarn lint && yarn build",
+    "postpublish": "yarn clean"
+  },
+  "dependencies": {
+    "del": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.62.0"
+  },
+  "files": [
+    "dist",
+    "readme.md"
+  ],
+  "keywords": [
+    "rollup",
+    "plugin",
+    "delete",
+    "clear",
+    "clean",
+    "remove"
+  ],
+  "license": "MIT"
+}
