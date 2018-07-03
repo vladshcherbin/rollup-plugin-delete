@@ -31,7 +31,7 @@
   ],
   "keywords": [
     "rollup",
-    "plugin",
+    "rollup-plugin",
     "delete",
     "clear",
     "clean",
