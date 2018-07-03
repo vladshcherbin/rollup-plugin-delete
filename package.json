@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-delete",
   "description": "Delete files and folders using Rollup",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
   "repository": "vladshcherbin/rollup-plugin-delete",
   "main": "dist/index.js",
