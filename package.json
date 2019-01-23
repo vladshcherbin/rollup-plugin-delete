@@ -16,11 +16,11 @@
     "del": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "rimraf": "^2.6.2",
-    "rollup": "^0.62.0"
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.1.2"
   },
   "peerDependencies": {
     "rollup": ">=0.60.0"
