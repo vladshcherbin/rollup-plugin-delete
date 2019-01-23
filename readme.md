@@ -10,7 +10,9 @@ This plugin is useful when you want to clean `dist` or other folders and files b
 
 ```bash
 npm install rollup-plugin-delete --save-dev
+
 # or
+
 yarn add rollup-plugin-delete -D
 ```
 
@@ -52,13 +54,51 @@ del({
 
 **verbose**
 
-If set to `true`, will output removed files and folders to console. Default is `false`.
+Outputs removed files and folders to console. Default is `false`.
 
 ```js
 del({
+  targets: 'dist/*',
   verbose: true
 })
 ```
+
+#### Del package options
+
+**dryRun**
+
+Shows what would be deleted without actual delete. Default is `false`.
+
+```js
+del({
+  targets: 'dist/*',
+  dryRun: true
+})
+```
+
+**force**
+
+Allows deleting current working directory and outside. Default is `false`.
+
+```js
+del({
+  targets: 'dist/*',
+  force: true
+})
+```
+
+**concurrency**
+
+Concurrency limit. Default is `Infinity`.
+
+```js
+del({
+  targets: 'dist/*',
+  concurrency: 5
+})
+```
+
+[`glob` options](https://github.com/isaacs/node-glob#options)
 
 ## License
 
