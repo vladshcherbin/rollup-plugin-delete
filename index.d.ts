@@ -6,10 +6,10 @@
  * del({ targets: ['dist/*'], dryRun: true })
  * del({ targets: ['dist/*'], concurrency: 4 })
  */
-export default function({ targets, verbose, ...rest }: {
+export default function({ targets, verbose, dryRun, force, concurrency }: {
   targets: any[],
   verbose?: boolean,
   dryRun?: boolean,
   force?: boolean,
-  concurrency?: number
+  concurrency?: number,
 }): void;
