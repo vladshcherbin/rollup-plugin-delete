@@ -12,4 +12,4 @@ export default function({ targets, verbose, dryRun, force, concurrency, ...rest 
   dryRun?: boolean,
   force?: boolean,
   concurrency?: number
-}): void;
+}): {};
