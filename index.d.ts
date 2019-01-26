@@ -7,7 +7,7 @@
  * del({ targets: ['dist/*'], concurrency: 4 })
  */
 export default function({ targets, verbose, dryRun, force, concurrency }: {
-  targets: any[],
+  targets: string | string[],
   verbose?: boolean,
   dryRun?: boolean,
   force?: boolean,
