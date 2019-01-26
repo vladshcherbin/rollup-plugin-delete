@@ -1,3 +1,5 @@
+import { Plugin } from 'rollup'
+import { IOptions } from 'glob'
 /**
  * @example
  * del({ targets: ['dist/*'] })
@@ -6,8 +8,6 @@
  * del({ targets: ['dist/*'], dryRun: true })
  * del({ targets: ['dist/*'], concurrency: 4 })
  */
-import { Plugin } from 'rollup'
-import { IOptions } from 'glob'
 export default function({ targets, verbose, dryRun, force, concurrency, ...rest }: {
   targets: string | string[];
   verbose?: boolean;
