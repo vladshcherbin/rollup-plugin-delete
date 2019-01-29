@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 import del from 'del'
 
-export default function ({ targets = [], verbose = false, ...rest }) {
+export default function (options = { targets: [], verbose: false }) {
+  const { targets, verbose, ...rest } = options
+
   return {
     name: 'delete',
     buildStart: () => del(targets, rest).then((paths) => {
