@@ -63,6 +63,8 @@ del({
 })
 ```
 
+> Note: use \* (wildcard character) to show removed files
+
 #### Del package options
 
 **dryRun**
