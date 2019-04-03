@@ -7,7 +7,7 @@ export default function (options = { targets: [], verbose: false }) {
   return {
     name: 'delete',
     buildStart: () => del(targets, rest).then((paths) => {
-      if (verbose) {
+      if (verbose || (rest.dryRun && verbose !== false)) {
         const message = rest.dryRun
           ? `Expected files and folders to be deleted: ${paths.length}`
           : `Deleted files and folders: ${paths.length}`
