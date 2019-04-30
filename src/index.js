@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
-import del from 'del'
+import internalDel from 'del'
 
-export default function (options = { targets: [], verbose: false }) {
+export default function del(options = { targets: [], verbose: false }) {
   const { targets, verbose, ...rest } = options
 
   return {
     name: 'delete',
-    buildStart: () => del(targets, rest).then((paths) => {
+    buildStart: () => internalDel(targets, rest).then((paths) => {
       if (verbose || (rest.dryRun && verbose !== false)) {
         const message = rest.dryRun
           ? `Expected files and folders to be deleted: ${paths.length}`
