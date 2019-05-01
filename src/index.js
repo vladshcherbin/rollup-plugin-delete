@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import internalDel from 'del'
 
-export default function del(options = { targets: [], verbose: false }) {
-  const { targets, verbose, ...rest } = options
+export default function del(options = {}) {
+  const { targets = [], verbose = false, ...rest } = options
 
   return {
     name: 'delete',
