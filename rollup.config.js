@@ -4,12 +4,12 @@ export default {
   input: 'src/index.js',
   output: [
     {
-      file: 'dist/index.cjs.js',
-      format: 'cjs'
+      file: 'dist/index.commonjs.js',
+      format: 'commonjs'
     },
     {
-      file: 'dist/index.esm.js',
-      format: 'esm'
+      file: 'dist/index.module.js',
+      format: 'module'
     }
   ],
   plugins: [
