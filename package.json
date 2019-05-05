@@ -6,6 +6,7 @@
   "repository": "vladshcherbin/rollup-plugin-delete",
   "main": "dist/index.commonjs.js",
   "module": "dist/index.module.js",
+  "types": "index.d.ts",
   "scripts": {
     "clean": "rimraf coverage dist",
     "lint": "eslint src tests",
@@ -36,6 +37,7 @@
   },
   "files": [
     "dist",
+    "index.d.ts",
     "readme.md"
   ],
   "keywords": [
