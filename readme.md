@@ -68,6 +68,17 @@ del({
 
 > Note: use \* (wildcard character) to show removed files
 
+**hook**
+
+[Rollup hook](https://rollupjs.org/guide/en/#hooks) the plugin should use. Default is `buildStart`.
+
+```js
+del({
+  targets: 'dist/*',
+  hook: 'buildEnd'
+})
+```
+
 #### Del package options
 
 **dryRun**

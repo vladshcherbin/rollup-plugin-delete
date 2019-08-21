@@ -2,11 +2,16 @@
 import internalDel from 'del'
 
 export default function del(options = {}) {
-  const { targets = [], verbose = false, ...rest } = options
+  const {
+    hook = 'buildStart',
+    targets = [],
+    verbose = false,
+    ...rest
+  } = options
 
   return {
     name: 'delete',
-    buildStart: () => internalDel(targets, rest).then((paths) => {
+    [hook]: () => internalDel(targets, rest).then((paths) => {
       if (verbose || rest.dryRun) {
         const message = rest.dryRun
           ? `Expected files and folders to be deleted: ${paths.length}`

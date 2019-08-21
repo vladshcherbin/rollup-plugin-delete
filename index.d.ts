@@ -3,6 +3,12 @@ import { Plugin } from 'rollup';
 
 interface Options extends internalDel.Options {
     /**
+     * Rollup hook the plugin should use.
+     * @default 'buildStart'
+     */
+    readonly hook?: string;
+
+    /**
      * Patterns of files and folders to be deleted.
      * @default []
      */
