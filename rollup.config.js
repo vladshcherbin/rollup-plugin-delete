@@ -4,18 +4,18 @@ export default {
   input: 'src/index.js',
   output: [
     {
-      file: 'dist/index.commonjs.js',
-      format: 'commonjs'
+      file: 'dist/index.cjs.js',
+      format: 'cjs'
     },
     {
-      file: 'dist/index.module.js',
-      format: 'module'
+      file: 'dist/index.es.js',
+      format: 'es'
     }
   ],
   plugins: [
     babel({
-      presets: [['@babel/preset-env', { targets: { node: 8 } }]]
+      presets: [['@babel/preset-env', { targets: { node: '8.3' } }]],
+      comments: false
     })
-  ],
-  external: ['del']
+  ]
 }
