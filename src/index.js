@@ -11,7 +11,9 @@ export default function del(options = {}) {
 
   return {
     name: 'delete',
-    [hook]: () => internalDel(targets, rest).then((paths) => {
+    [hook]: async () => {
+      const paths = await internalDel(targets, rest)
+
       if (verbose || rest.dryRun) {
         const message = rest.dryRun
           ? `Expected files and folders to be deleted: ${paths.length}`
@@ -25,6 +27,6 @@ export default function del(options = {}) {
           })
         }
       }
-    })
+    }
   }
 }
