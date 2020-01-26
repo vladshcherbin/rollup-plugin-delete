@@ -41,7 +41,7 @@ export default {
 
 There are some useful options:
 
-**targets**
+#### targets
 
 A string or an array of patterns of files and folders to be deleted. Default is `[]`.
 
@@ -55,7 +55,7 @@ del({
 })
 ```
 
-**verbose**
+#### verbose
 
 Outputs removed files and folders to console. Default is `false`.
 
@@ -68,7 +68,7 @@ del({
 
 > Note: use \* (wildcard character) to show removed files
 
-**hook**
+#### hook
 
 [Rollup hook](https://rollupjs.org/guide/en/#hooks) the plugin should use. Default is `buildStart`.
 
@@ -79,7 +79,7 @@ del({
 })
 ```
 
-**runOnce**
+#### runOnce
 
 Type: `boolean` | Default: `false`
 
@@ -94,7 +94,7 @@ del({
 
 ### Del package options
 
-**dryRun**
+#### dryRun
 
 Shows what would be deleted without actual delete. Default is `false`.
 
@@ -105,7 +105,7 @@ del({
 })
 ```
 
-**force**
+#### force
 
 Allows deleting current working directory and outside. Default is `false`.
 
@@ -116,7 +116,7 @@ del({
 })
 ```
 
-**concurrency**
+#### concurrency
 
 Concurrency limit. Default is `Infinity`.
 
