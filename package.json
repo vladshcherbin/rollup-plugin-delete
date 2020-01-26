@@ -9,11 +9,11 @@
   "types": "index.d.ts",
   "scripts": {
     "clean": "rimraf coverage dist",
-    "lint": "eslint src tests",
-    "test": "jest",
     "build": "rollup -c",
+    "lint": "eslint src tests",
+    "postpublish": "yarn clean",
     "prepublishOnly": "yarn lint && yarn test && yarn clean && yarn build",
-    "postpublish": "yarn clean"
+    "test": "jest"
   },
   "dependencies": {
     "del": "^4.1.1"
