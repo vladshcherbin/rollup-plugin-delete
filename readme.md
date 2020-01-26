@@ -79,7 +79,20 @@ del({
 })
 ```
 
-#### Del package options
+**runOnce**
+
+Type: `boolean` | Default: `false`
+
+Delete items once. Useful in watch mode.
+
+```js
+del({
+  targets: 'dist/*',
+  runOnce: true
+})
+```
+
+### Del package options
 
 **dryRun**
 

@@ -4,14 +4,21 @@ import internalDel from 'del'
 export default function del(options = {}) {
   const {
     hook = 'buildStart',
+    runOnce = false,
     targets = [],
     verbose = false,
     ...rest
   } = options
 
+  let deleted = false
+
   return {
     name: 'delete',
     [hook]: async () => {
+      if (runOnce && deleted) {
+        return
+      }
+
       const paths = await internalDel(targets, rest)
 
       if (verbose || rest.dryRun) {
@@ -27,6 +34,8 @@ export default function del(options = {}) {
           })
         }
       }
+
+      deleted = true
     }
   }
 }

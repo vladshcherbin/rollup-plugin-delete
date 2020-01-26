@@ -9,6 +9,12 @@ interface Options extends internalDel.Options {
     readonly hook?: string;
 
     /**
+     * Delete items once. Useful in watch mode.
+     * @default false
+     */
+    readonly runOnce?: boolean;
+
+    /**
      * Patterns of files and folders to be deleted.
      * @default []
      */

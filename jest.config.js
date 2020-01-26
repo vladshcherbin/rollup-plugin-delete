@@ -4,6 +4,7 @@ module.exports = {
     '<rootDir>/tests'
   ],
   watchPathIgnorePatterns: [
-    '<rootDir>/tests/fixtures/dist'
+    '<rootDir>/tests/fixtures/dist',
+    '<rootDir>/tests/fixtures/src/index.js'
   ]
 }

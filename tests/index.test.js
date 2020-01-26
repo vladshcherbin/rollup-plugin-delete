@@ -1,8 +1,13 @@
-import { rollup } from 'rollup'
+import { rollup, watch } from 'rollup'
 import fs from 'fs-extra'
+import replace from 'replace-in-file'
 import del from '../src'
 
 process.chdir(`${__dirname}/fixtures`)
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
 
 async function build(options) {
   await rollup({
@@ -97,4 +102,48 @@ describe('Options', () => {
     expect(console.log).toHaveBeenCalledWith(`${__dirname}/fixtures/dist`)
   })
   /* eslint-enable no-console */
+
+  test('Run once', async () => {
+    expect(await fs.pathExists('dist/public/app.js')).toBe(true)
+
+    const watcher = watch({
+      input: 'src/index.js',
+      output: {
+        dir: 'dist',
+        format: 'es'
+      },
+      plugins: [
+        del({
+          targets: 'dist',
+          runOnce: true
+        })
+      ]
+    })
+
+    await sleep(1000)
+
+    expect(await fs.pathExists('dist/public/app.js')).toBe(false)
+
+    await fs.ensureFile('dist/public/app.js')
+
+    expect(await fs.pathExists('dist/public/app.js')).toBe(true)
+
+    await replace({
+      files: 'src/index.js',
+      from: 'hey',
+      to: 'ho'
+    })
+
+    await sleep(1000)
+
+    expect(await fs.pathExists('dist/public/app.js')).toBe(true)
+
+    watcher.close()
+
+    await replace({
+      files: 'src/index.js',
+      from: 'ho',
+      to: 'hey'
+    })
+  })
 })
