@@ -33,9 +33,6 @@
     "rollup": "^2.15.0",
     "rollup-plugin-auto-external": "^2.0.0"
   },
-  "peerDependencies": {
-    "rollup": ">=0.60.0"
-  },
   "files": [
     "dist",
     "index.d.ts",
