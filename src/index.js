@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import internalDel from 'del'
 
 export default function del(options = {}) {
