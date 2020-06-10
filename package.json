@@ -50,7 +50,7 @@
     "remove"
   ],
   "engines": {
-    "node": ">=8.3"
+    "node": ">=10"
   },
   "license": "MIT"
 }
