@@ -1,4 +1,3 @@
-import babel from 'rollup-plugin-babel'
 import autoExternal from 'rollup-plugin-auto-external'
 
 export default {
@@ -14,10 +13,6 @@ export default {
     }
   ],
   plugins: [
-    babel({
-      presets: [['@babel/preset-env', { targets: { node: '8.3' } }]],
-      comments: false
-    }),
     autoExternal()
   ]
 }
