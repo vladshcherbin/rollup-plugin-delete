@@ -44,7 +44,10 @@
     "delete",
     "clear",
     "clean",
-    "remove"
+    "remove",
+    "file",
+    "folder",
+    "directory"
   ],
   "engines": {
     "node": ">=10"
