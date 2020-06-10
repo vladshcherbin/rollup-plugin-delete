@@ -7,16 +7,16 @@ Delete files and folders using Rollup.
 
 ## About
 
-This plugin is useful when you want to clean `dist` or other folders and files before bundling. It's using [del](https://github.com/sindresorhus/del) package inside, check it for pattern examples.
+This plugin is useful when you want to clean `dist` or other folders and files before bundling. It's using [del package](https://github.com/sindresorhus/del) inside, check it for pattern examples.
 
 ## Installation
 
 ```bash
-npm install rollup-plugin-delete --save-dev
-
-# or
-
+# yarn
 yarn add rollup-plugin-delete -D
+
+# npm
+npm install rollup-plugin-delete -D
 ```
 
 ## Usage
@@ -57,7 +57,7 @@ del({
 
 #### verbose
 
-Outputs removed files and folders to console. Default is `false`.
+Output removed files and folders to console. Default is `false`.
 
 ```js
 del({
@@ -66,11 +66,11 @@ del({
 })
 ```
 
-> Note: use \* (wildcard character) to show removed files
+> Note: use \* (wildcard character) in pattern to show removed files
 
 #### hook
 
-[Rollup hook](https://rollupjs.org/guide/en/#hooks) the plugin should use. Default is `buildStart`.
+[Rollup hook](https://rollupjs.org/guide/en/#build-hooks) the plugin should use. Default is `buildStart`.
 
 ```js
 del({
@@ -92,42 +92,7 @@ del({
 })
 ```
 
-### Del package options
-
-#### dryRun
-
-Shows what would be deleted without actual delete. Default is `false`.
-
-```js
-del({
-  targets: 'dist/*',
-  dryRun: true
-})
-```
-
-#### force
-
-Allows deleting current working directory and outside. Default is `false`.
-
-```js
-del({
-  targets: 'dist/*',
-  force: true
-})
-```
-
-#### concurrency
-
-Concurrency limit. Default is `Infinity`.
-
-```js
-del({
-  targets: 'dist/*',
-  concurrency: 5
-})
-```
-
-[`glob` options](https://github.com/isaacs/node-glob#options)
+All other options are passed to [del package](https://github.com/sindresorhus/del) which is used inside.
 
 ## License
 
