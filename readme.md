@@ -1,6 +1,5 @@
 # rollup-plugin-delete
 
-[![Build Status](https://travis-ci.org/vladshcherbin/rollup-plugin-delete.svg?branch=master)](https://travis-ci.org/vladshcherbin/rollup-plugin-delete)
 [![Codecov](https://codecov.io/gh/vladshcherbin/rollup-plugin-delete/branch/master/graph/badge.svg)](https://codecov.io/gh/vladshcherbin/rollup-plugin-delete)
 
 Delete files and folders using Rollup.
