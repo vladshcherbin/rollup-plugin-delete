@@ -18,6 +18,9 @@
   "dependencies": {
     "del": "^5.1.0"
   },
+  "peerDependencies": {
+    "rollup": "*"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
