@@ -1,12 +1,12 @@
-import internalDel from 'del';
-import { Plugin } from 'rollup';
+import type { Options as DelOptions } from 'del';
+import type { Plugin, AsyncPluginHooks } from 'rollup';
 
-interface Options extends internalDel.Options {
+interface Options extends DelOptions {
     /**
      * Rollup hook the plugin should use.
      * @default 'buildStart'
      */
-    readonly hook?: string;
+    readonly hook?: AsyncPluginHooks;
 
     /**
      * Delete items once. Useful in watch mode.
@@ -18,7 +18,7 @@ interface Options extends internalDel.Options {
      * Patterns of files and folders to be deleted.
      * @default []
      */
-    readonly targets?: string | ReadonlyArray<string>;
+    readonly targets?: string | readonly string[];
 
     /**
      * Outputs removed files and folders to console.
