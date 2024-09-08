@@ -6,7 +6,7 @@ import del from '../src'
 process.chdir(`${__dirname}/fixtures`)
 
 function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
+  return new Promise((resolve) => { setTimeout(resolve, ms) })
 }
 
 async function build(options) {
