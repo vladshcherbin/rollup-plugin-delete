@@ -1,7 +1,5 @@
 # rollup-plugin-delete
 
-[![Codecov](https://codecov.io/gh/vladshcherbin/rollup-plugin-delete/branch/master/graph/badge.svg)](https://codecov.io/gh/vladshcherbin/rollup-plugin-delete)
-
 Delete files and folders using Rollup.
 
 ## About
