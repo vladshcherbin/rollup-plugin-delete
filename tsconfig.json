@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/node18",
+  "compilerOptions": {
+    "declaration": true,
+    "noImplicitReturns": true,
+    "outDir": "dist",
+    "verbatimModuleSyntax": true
+  },
+  "include": ["src"]
+}
