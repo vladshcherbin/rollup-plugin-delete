@@ -16,7 +16,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "del": "^5.1.0"
+    "del": "^6.1.1"
   },
   "peerDependencies": {
     "rollup": "*"
