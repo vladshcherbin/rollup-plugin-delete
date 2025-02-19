@@ -9,6 +9,9 @@ This plugin is useful when you want to clean `dist` or other folders and files b
 ## Installation
 
 ```bash
+# pnpm
+pnpm add rollup-plugin-delete -D
+
 # yarn
 yarn add rollup-plugin-delete -D
 
@@ -25,8 +28,7 @@ import del from 'rollup-plugin-delete'
 export default {
   input: 'src/index.js',
   output: {
-    file: 'dist/app.js',
-    format: 'cjs'
+    file: 'dist/app.js'
   },
   plugins: [
     del({ targets: 'dist/*' })
@@ -44,11 +46,15 @@ A string or an array of patterns of files and folders to be deleted. Default is 
 
 ```js
 del({
-  targets: 'dist/*'
+  targets: 'build'
 })
 
 del({
-  targets: ['dist/*', 'build/*']
+  targets: 'dist/*.js'
+})
+
+del({
+  targets: ['dist/*', 'images/*.webp']
 })
 ```
 
@@ -67,7 +73,7 @@ del({
 
 #### hook
 
-[Rollup hook](https://rollupjs.org/guide/en/#build-hooks) the plugin should use. Default is `buildStart`.
+[Rollup hook](https://rollupjs.org/plugin-development/#build-hooks) the plugin should use. Default is `buildStart`.
 
 ```js
 del({
