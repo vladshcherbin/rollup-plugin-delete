@@ -18,6 +18,17 @@ export interface Options extends DelOptions {
   /**
    * Patterns of files and folders to be deleted.
    * @default []
+   *
+   * ```js
+   * // Folder
+   * del({ targets: 'build' })
+   * // File
+   * del({ targets: 'dist/app.js' })
+   * // Multiple files
+   * del({ targets: 'build/*.js' })
+   * // Mixed
+   * del({ targets: ['dist/*', 'images/*.webp'] })
+   * ```
    */
   readonly targets?: readonly string[] | string
 
