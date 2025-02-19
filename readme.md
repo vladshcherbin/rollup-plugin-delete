@@ -4,7 +4,7 @@ Delete files and folders using Rollup.
 
 ## About
 
-This plugin is useful when you want to clean `dist` or other folders and files before bundling. It's using [del package](https://github.com/sindresorhus/del) inside, check it for pattern examples.
+This plugin is useful when you want to clean `dist` or other folders and files before bundling. It's using [del package](https://github.com/sindresorhus/del) inside, check it for [pattern examples](https://github.com/sindresorhus/del?tab=readme-ov-file#patterns) and [additional options](https://github.com/sindresorhus/del?tab=readme-ov-file#options).
 
 ## Installation
 
@@ -31,7 +31,7 @@ export default {
     file: 'dist/app.js'
   },
   plugins: [
-    del({ targets: 'dist/*' })
+    del({ targets: 'dist' })
   ]
 }
 ```
@@ -45,14 +45,17 @@ There are some useful options:
 A string or an array of patterns of files and folders to be deleted. Default is `[]`.
 
 ```js
+// Folder
 del({
   targets: 'build'
 })
 
+// Files
 del({
   targets: 'dist/*.js'
 })
 
+// Multiple targets
 del({
   targets: ['dist/*', 'images/*.webp']
 })
@@ -62,14 +65,15 @@ del({
 
 Output removed files and folders to console. Default is `false`.
 
+> [!NOTE]  
+> Use \* (wildcard character) in pattern to show removed files
+
 ```js
 del({
   targets: 'dist/*',
   verbose: true
 })
 ```
-
-> Note: use \* (wildcard character) in pattern to show removed files
 
 #### hook
 
