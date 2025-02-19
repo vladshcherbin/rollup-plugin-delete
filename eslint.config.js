@@ -6,5 +6,10 @@ export default [
     rules: {
       'no-console': 'off'
     }
+  },
+  {
+    ignores: [
+      'tests/**/*.ts'
+    ]
   }
 ]

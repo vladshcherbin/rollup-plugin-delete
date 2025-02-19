@@ -11,7 +11,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc",
-    "lint": "eslint src tests",
+    "lint": "eslint",
     "postpublish": "pnpm clean",
     "prepublishOnly": "pnpm lint && pnpm test && pnpm clean && pnpm build",
     "test": "vitest"
