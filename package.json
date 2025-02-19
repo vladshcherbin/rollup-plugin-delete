@@ -4,9 +4,10 @@
   "version": "2.2.0",
   "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
   "repository": "vladshcherbin/rollup-plugin-delete",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "default": "./dist/index.js"
+  },
   "scripts": {
     "clean": "rimraf coverage dist",
     "build": "tsc",
@@ -34,7 +35,6 @@
   },
   "files": [
     "dist",
-    "index.d.ts",
     "readme.md"
   ],
   "keywords": [
@@ -56,5 +56,6 @@
   "engines": {
     "node": ">=18"
   },
+  "type": "module",
   "license": "MIT"
 }
