@@ -5,7 +5,6 @@ export interface Options extends DelOptions {
   /**
    * Rollup hook the plugin should use.
    * @default 'buildStart'
-   * end
    */
   readonly hook?: AsyncPluginHooks
 
@@ -17,7 +16,6 @@ export interface Options extends DelOptions {
 
   /**
    * Patterns of files and folders to be deleted.
-   * @default []
    *
    * ```js
    * // Folder
@@ -29,6 +27,8 @@ export interface Options extends DelOptions {
    * // Mixed
    * del({ targets: ['dist/*', 'images/*.webp'] })
    * ```
+   *
+   * @default []
    */
   readonly targets?: readonly string[] | string
 
