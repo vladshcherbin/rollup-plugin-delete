@@ -62,8 +62,8 @@ export default function del(options: Options = {}): Plugin {
 
       if (verbose || delOptions.dryRun) {
         const message = delOptions.dryRun
-          ? `Expected files and folders to be deleted: ${paths.length}`
-          : `Deleted files and folders: ${paths.length}`
+          ? `Expected to be deleted: ${paths.length}`
+          : `Deleted: ${paths.length}`
 
         console.log(message)
 

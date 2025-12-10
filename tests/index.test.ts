@@ -67,7 +67,7 @@ describe('Options', () => {
 
     expect(await pathExists('dist')).toBe(false)
     expect(log).toHaveBeenCalledTimes(2)
-    expect(log).toHaveBeenCalledWith('Deleted files and folders: 1')
+    expect(log).toHaveBeenCalledWith('Deleted: 1')
     expect(log).toHaveBeenCalledWith(`${__dirname}/sample/dist`)
   })
 
@@ -79,7 +79,7 @@ describe('Options', () => {
 
     expect(await pathExists('dist')).toBe(true)
     expect(log).toHaveBeenCalledTimes(1)
-    expect(log).toHaveBeenCalledWith('Deleted files and folders: 0')
+    expect(log).toHaveBeenCalledWith('Deleted: 0')
   })
 
   test('DryRun', async () => {
@@ -90,7 +90,7 @@ describe('Options', () => {
 
     expect(await pathExists('dist')).toBe(true)
     expect(log).toHaveBeenCalledTimes(2)
-    expect(log).toHaveBeenCalledWith('Expected files and folders to be deleted: 1')
+    expect(log).toHaveBeenCalledWith('Expected to be deleted: 1')
     expect(log).toHaveBeenCalledWith(`${__dirname}/sample/dist`)
   })
 
