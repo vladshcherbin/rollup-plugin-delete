@@ -4,6 +4,8 @@
   "version": "3.0.1",
   "author": "Vlad Shcherbin <vlad.shcherbin@gmail.com>",
   "repository": "vladshcherbin/rollup-plugin-delete",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "types": "./dist/index.d.ts",
     "default": "./dist/index.js"
