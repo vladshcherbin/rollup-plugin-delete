@@ -23,15 +23,15 @@
     "rollup": "*"
   },
   "devDependencies": {
-    "@shcherbin/eslint-config": "^0.15.10",
-    "@tsconfig/node18": "^18.2.4",
+    "@shcherbin/eslint-config-node": "^0.4.1",
+    "@tsconfig/node18": "^18.2.6",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^20",
-    "eslint": "^9.20.1",
-    "fs-extra": "^11.3.0",
-    "replace-in-file": "^8.3.0",
-    "rimraf": "^6.0.1",
-    "typescript": "^5.7.3"
+    "@types/node": "^25.0.0",
+    "eslint": "^9.39.1",
+    "fs-extra": "^11.3.2",
+    "replace-in-file": "^8.4.0",
+    "rimraf": "^6.1.2",
+    "typescript": "^5.9.3"
   },
   "files": [
     "dist",
@@ -50,7 +50,8 @@
   ],
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild"
+      "esbuild",
+      "unrs-resolver"
     ]
   },
   "engines": {

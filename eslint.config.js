@@ -1,15 +1,14 @@
-import config from '@shcherbin/eslint-config'
+import config from '@shcherbin/eslint-config-node'
+import { defineConfig } from 'eslint/config'
 
-export default [
-  ...config.nodeTypescript,
+export default defineConfig([
   {
+    extends: config,
+    ignores: [
+      'tests/**/*.ts'
+    ],
     rules: {
       'no-console': 'off'
     }
-  },
-  {
-    ignores: [
-      'tests/**/*.ts'
-    ]
   }
-]
+])
