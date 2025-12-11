@@ -1,11 +1,10 @@
 import { ensureFile, pathExists, remove } from 'fs-extra'
+import assert from 'node:assert/strict'
+import { after, afterEach, before, beforeEach, describe, mock, test } from 'node:test'
 import { setTimeout } from 'node:timers/promises'
 import { replaceInFile } from 'replace-in-file'
 import { rollup, watch } from 'rollup'
-import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
-import del, { type Options } from '../src/index.js'
-
-process.chdir('tests/sample')
+import del, { type Options } from '../src/index.ts'
 
 async function build(options?: Options) {
   await rollup({
@@ -16,6 +15,10 @@ async function build(options?: Options) {
   })
 }
 
+before(() => {
+  process.chdir(`${import.meta.dirname}/sample`)
+})
+
 beforeEach(async () => {
   await ensureFile('dist/app.js')
   await ensureFile('dist/app.css')
@@ -25,77 +28,81 @@ afterEach(async () => {
   await remove('dist')
 })
 
-describe('Targets', () => {
-  test('Empty', async () => {
+await describe('Targets', async () => {
+  await test('Empty', async () => {
     await build()
 
-    expect(await pathExists('dist/app.js')).toBe(true)
-    expect(await pathExists('dist/app.css')).toBe(true)
+    assert.strictEqual(await pathExists('dist/app.js'), true)
+    assert.strictEqual(await pathExists('dist/app.css'), true)
   })
 
-  test('Files', async () => {
+  await test('Files', async () => {
     await build({
       targets: 'dist/*.{js,css}'
     })
 
-    expect(await pathExists('dist')).toBe(true)
-    expect(await pathExists('dist/app.js')).toBe(false)
-    expect(await pathExists('dist/app.css')).toBe(false)
+    assert.strictEqual(await pathExists('dist'), true)
+    assert.strictEqual(await pathExists('dist/app.js'), false)
+    assert.strictEqual(await pathExists('dist/app.css'), false)
   })
 
-  test('Folders', async () => {
+  await test('Folders', async () => {
     await build({
       targets: 'dist'
     })
 
-    expect(await pathExists('dist')).toBe(false)
+    assert.strictEqual(await pathExists('dist'), false)
   })
 })
 
-describe('Options', () => {
-  const log = vi.spyOn(console, 'log').mockImplementation(() => null)
+await describe('Options', async () => {
+  const log = mock.method(console, 'log', () => null)
 
   afterEach(() => {
-    vi.spyOn(console, 'log').mockClear()
+    log.mock.resetCalls()
   })
 
-  test('Verbose', async () => {
+  after(() => {
+    mock.reset()
+  })
+
+  await test('Verbose', async () => {
     await build({
       targets: 'dist',
       verbose: true
     })
 
-    expect(await pathExists('dist')).toBe(false)
-    expect(log).toHaveBeenCalledTimes(2)
-    expect(log).toHaveBeenCalledWith('Deleted: 1')
-    expect(log).toHaveBeenCalledWith(`${__dirname}/sample/dist`)
+    assert.strictEqual(await pathExists('dist'), false)
+    assert.strictEqual(log.mock.callCount(), 2)
+    assert.strictEqual(log.mock.calls[0].arguments[0], 'Deleted: 1')
+    assert.strictEqual(log.mock.calls[1].arguments[0], `${import.meta.dirname}/sample/dist`)
   })
 
-  test('Verbose, no targets', async () => {
+  await test('Verbose, no targets', async () => {
     await build({
       targets: 'build',
       verbose: true
     })
 
-    expect(await pathExists('dist')).toBe(true)
-    expect(log).toHaveBeenCalledTimes(1)
-    expect(log).toHaveBeenCalledWith('Deleted: 0')
+    assert.strictEqual(await pathExists('dist'), true)
+    assert.strictEqual(log.mock.callCount(), 1)
+    assert.strictEqual(log.mock.calls[0].arguments[0], 'Deleted: 0')
   })
 
-  test('DryRun', async () => {
+  await test('DryRun', async () => {
     await build({
       dryRun: true,
       targets: 'dist'
     })
 
-    expect(await pathExists('dist')).toBe(true)
-    expect(log).toHaveBeenCalledTimes(2)
-    expect(log).toHaveBeenCalledWith('Expected to be deleted: 1')
-    expect(log).toHaveBeenCalledWith(`${__dirname}/sample/dist`)
+    assert.strictEqual(await pathExists('dist'), true)
+    assert.strictEqual(log.mock.callCount(), 2)
+    assert.strictEqual(log.mock.calls[0].arguments[0], 'Expected to be deleted: 1')
+    assert.strictEqual(log.mock.calls[1].arguments[0], `${import.meta.dirname}/sample/dist`)
   })
 
-  test('Run once', async () => {
-    expect(await pathExists('dist/app.js')).toBe(true)
+  await test('Run once', async () => {
+    assert.strictEqual(await pathExists('dist/app.js'), true)
 
     const watcher = watch({
       input: 'src/index.js',
@@ -113,12 +120,12 @@ describe('Options', () => {
 
     await setTimeout(100)
 
-    expect(await pathExists('dist/app.js')).toBe(false)
-    expect(await pathExists('dist/index.js')).toBe(true)
+    assert.strictEqual(await pathExists('dist/app.js'), false)
+    assert.strictEqual(await pathExists('dist/index.js'), true)
 
     await ensureFile('dist/app.js')
 
-    expect(await pathExists('dist/app.js')).toBe(true)
+    assert.strictEqual(await pathExists('dist/app.js'), true)
 
     await replaceInFile({
       files: 'src/index.js',
@@ -128,8 +135,8 @@ describe('Options', () => {
 
     await setTimeout(100)
 
-    expect(await pathExists('dist/app.js')).toBe(true)
-    expect(await pathExists('dist/index.js')).toBe(true)
+    assert.strictEqual(await pathExists('dist/app.js'), true)
+    assert.strictEqual(await pathExists('dist/index.js'), true)
 
     await watcher.close()
 

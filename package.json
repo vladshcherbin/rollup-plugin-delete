@@ -14,7 +14,7 @@
     "lint": "eslint",
     "postpublish": "pnpm clean",
     "prepublishOnly": "pnpm lint && pnpm test && pnpm clean && pnpm build",
-    "test": "vitest"
+    "test": "node --test"
   },
   "dependencies": {
     "del": "^8.0.1"
