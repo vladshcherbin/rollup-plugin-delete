@@ -5,7 +5,7 @@ export default defineConfig([
   {
     extends: config,
     ignores: [
-      'tests/**/*.ts'
+      'tests/**/*'
     ],
     rules: {
       'no-console': 'off'
